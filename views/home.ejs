@@ -1,0 +1,31 @@
+<%- include("partials/header"); -%>
+    <div class="full-page">
+        <h1 style="text-align: left; width: 100%;">Home</h1>
+
+        <p class="p-text">
+            <%= homeText %>
+        </p>
+
+        <% allPosts.forEach(function(post){ %>
+            <% const truncatedContent=post.content.substring(0, 100)+"..."; %>
+            
+                <div class="newPost">
+                    <h1>
+                        <%= post.title %>
+                    </h1>
+                    <p class="p-text">
+                       <%= truncatedContent %> <a href="/posts/<%= post._id %>" >Read More</a>
+                    </p>
+                </div>
+                <% }) %>
+                    <!--
+        <% for(let i=0; i< allPosts.length;i++){ %>
+
+            <div class="newPost">
+                <h2><%= allPosts[i].title1 %></h2>
+                <p class="p-text"><%= allPosts[i].content1 %></p>
+            </div>
+        <% } %>
+    -->
+    </div>
+    <%- include("partials/footer"); -%>
